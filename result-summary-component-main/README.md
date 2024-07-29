@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/result-summary-component-using-grid-fQ6F2C5dkw
-- Live Site URL: [https://wildecodx.github.io/product-list-with-cart-main](https://result-summary-component-ftdk68tpw-wildecodx.vercel.app/
+- Live Site URL: [https://result-summary-component-ftdk68tpw-wildecodx.vercel.app/
 
 
 ### Built with
