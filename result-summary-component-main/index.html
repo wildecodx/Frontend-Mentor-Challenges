@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Results summary component</title>
+  </head>
+  <body>
+    <main>
+      <div class="cards">
+        <div class="result-card grid" data-spacing="gap-large">
+          <h1 class="card-title">Your Result</h1>
+          <p class="result-score">
+            <span>76</span>
+            of 100
+          </p>
+          <div class="grid">
+            <h3 class="result-ave">Great</h3>
+            <p>
+              You scored higher than 65% of the people who have taken these
+              tests.
+            </p>
+          </div>
+        </div>
+        <div class="summary-card grid" data-spacing="gap-large">
+          <h2 class="card-title">Summary</h2>
+          <div class="grid">
+            <div class="summary-d-flex" data-item="accent-1">
+              <div class="summary-item">
+                <img src="images/icon-reaction.svg" alt="Reaction" />
+                <p class="summary-title">Reaction</p>
+              </div>
+              <p class="summary-score">
+                <span>80</span>
+                / 100
+              </p>
+            </div>
+            <div class="summary-d-flex" data-item="accent-2">
+              <div class="summary-item">
+                <img src="images/icon-memory.svg" alt="Memory" />
+                <p class="summary-title">Memory</p>
+              </div>
+              <p class="summary-score">
+                <span>92</span>
+                / 100
+              </p>
+            </div>
+            <div class="summary-d-flex" data-item="accent-3">
+              <div class="summary-item">
+                <img src="images/icon-verbal.svg" alt="Verbal" />
+                <p class="summary-title">Verbal</p>
+              </div>
+              <p class="summary-score">
+                <span>61 </span>
+                / 100
+              </p>
+            </div>
+            <div class="summary-d-flex" data-item="accent-4">
+              <div class="summary-item">
+                <img src="images/icon-visual.svg" alt="Visual" />
+                <p class="summary-title">Visual</p>
+              </div>
+              <p class="summary-score">
+                <span>72</span>
+                / 100
+              </p>
+            </div>
+          </div>
+          <button class="continue-btn">Continue</button>
+        </div>
+      </div>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >
+      Coded by <a href="#">WilDecodeX</a>
+    </footer>
+  </body>
+</html>
