@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [(https://your-solution-url.com](https://www.frontendmentor.io/solutions/vanilla-javascript-for-interaction-and-modern-css-5lIb8E4oTp))
-- Live Site URL: [https://wildecodx.github.io/product-list-with-cart-main/))
+- Solution URL: [https://your-solution-url.com](https://www.frontendmentor.io/solutions/vanilla-javascript-for-interaction-and-modern-css-5lIb8E4oTp)
+- Live Site URL: [https://wildecodx.github.io/product-list-with-cart-main/
 
 ### Built with
 
