@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Notifications page</title>
+  </head>
+  <body>
+    <main>
+      <div class="cards">
+        <div class="card-header">
+          <h2 class="header__title">
+            Notifications <span class="count-notif">3</span>
+          </h2>
+          <button class="toggle-btn">Mark all as read</button>
+        </div>
+        <ul class="card-notification-lists">
+          <li class="notification__li" data-status="new-notif">
+            <img
+              src="./assets/images/avatar-mark-webber.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"> Mark Webber </span>
+              reacted to your recent post
+              <strong> My first tournament today!</strong>
+              <span class="duration">1m ago</span>
+            </p>
+          </li>
+          <li class="notification__li" data-status="new-notif">
+            <img
+              src="./assets/images/avatar-angela-gray.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"> Angela Gray</span>
+              <strong class="regular">followed you</strong>
+
+              <span class="duration">5m ago</span>
+            </p>
+          </li>
+          <li class="notification__li" data-status="new-notif">
+            <img
+              src="./assets/images/avatar-jacob-thompson.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"> Jacon Thompson</span>
+              has joined your group
+              <strong class="highlight-text">Chess Club</strong>
+              <span class="duration">1 day ago</span>
+            </p>
+          </li>
+          <li class="notification__li">
+            <img
+              src="./assets/images/avatar-rizky-hasanuddin.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+
+            <p class="notification__li_content">
+              <span class="name"> Rizky Hasanuddin </span>
+              reacted to your recent post
+
+              <span class="duration">5 days ago</span>
+            </p>
+            <div class="large-content">
+              <p class="content__description">
+                Hello, thanks for setting up the Chess Club. I've been a member
+                for a few weeks now and I'm already having lots of fun and
+                improving my game.
+              </p>
+            </div>
+          </li>
+          <li class="notification__li">
+            <img
+              src="./assets/images/avatar-kimberly-smith.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"
+                >Kimberly Smith <span class="duration">1 week ago</span></span
+              >
+              commented on your picture
+            </p>
+            <img
+              src="./assets/images/image-chess.webp"
+              alt="pfp"
+              draggable="false"
+            />
+          </li>
+          <li class="notification__li">
+            <img
+              src="./assets/images/avatar-nathan-peterson.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"> Nathan Peterson</span>
+              reacted to your recent post
+              <strong>5 end-game strategies to increase your win rate</strong>
+              <span class="duration">2 weeks ago</span>
+            </p>
+          </li>
+          <li class="notification__li">
+            <img
+              src="./assets/images/avatar-anna-kim.webp"
+              class="image-sender"
+              alt="pfp"
+              draggable="false"
+            />
+            <p class="notification__li_content">
+              <span class="name"> Anna Kim</span>
+              left the group
+              <strong class="highlight-text">Chess Club</strong>
+              <span class="duration">2 weeks ago</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>.
+    </div>
+
+    <script>
+      const toggleBtn = document.querySelector(".toggle-btn");
+      const targetEl = document.querySelectorAll(
+        ".notification__li[data-status='new-notif']"
+      );
+      const countNotif = document.querySelector(".count-notif");
+
+      let start = 3;
+      countNotif.innerHTML = start;
+
+      toggleBtn.addEventListener("click", (e) => {
+        targetEl.forEach((item) => {
+          item.style.backgroundColor = "hsl(0, 0%, 100%)";
+          if (item.getAttribute("data-status")) {
+            item.setAttribute("data-status", "");
+            countNotif.innerHTML = "0";
+          }
+        });
+      });
+
+      targetEl.forEach((el, i) => {
+        el.addEventListener("click", () => {
+          if (start > 0) {
+            start--;
+            countNotif.innerHTML = start;
+            el.setAttribute("data-status", "");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
