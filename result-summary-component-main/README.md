@@ -29,6 +29,11 @@ Users should be able to:
 ![Untitled](https://github.com/wildecodx/result-summary-component/assets/130340385/0cd45d18-93bd-4346-b9f3-62f46cab1c28)
 
 
+### Links
+
+- Solution URL: [https://www.frontendmentor.io/solutions/result-summary-component-using-grid-fQ6F2C5dkw
+- Live Site URL: [https://result-summary-component-ftdk68tpw-wildecodx.vercel.app/
+
 
 ### Built with
 

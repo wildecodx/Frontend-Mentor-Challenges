@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/vanilla-javascript-for-interaction-and-modern-css-5lIb8E4oTp
+- Live Site URL: [https://product-list-with-cart-2yl2psm71-wildecodxs-projects.vercel.app/
 
 ### Built with
 
