@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+  </head>
+  <body>
+    <main>
+      <div class="cards">
+        <form method="post" class="form">
+          <h2 class="form-title">Stay updated!</h2>
+          <p class="form-description">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul class="form-lists">
+            <li class="form--li">
+              <img
+                class="check"
+                src="./assets/images/icon-list.svg"
+                alt="check"
+                draggable="false"
+              />
+              Product discovery and building what matters
+            </li>
+            <li class="form--li">
+              <img
+                class="check"
+                src="./assets/images/icon-list.svg"
+                alt="check"
+                draggable="false"
+              />
+              Measuring to ensure updates are a success
+            </li>
+            <li class="form--li">
+              <img
+                class="check"
+                src="./assets/images/icon-list.svg"
+                alt="check"
+                draggable="false"
+              />
+              And much more!
+            </li>
+          </ul>
+          <div class="form-input">
+            <label for="email-input" class="label">Email address</label>
+            <input
+              class="input-content"
+              name="email"
+              type="email"
+              id="email-input"
+              placeholder=" email@company.com"
+            />
+          </div>
+          <button class="form-cta">Subscribe to monthly newsletter</button>
+        </form>
+        <div class="form-img">
+          <img
+            src="./assets/images/illustration-sign-up-desktop.svg"
+            alt="illustration"
+            draggable="false"
+          />
+        </div>
+      </div>
+      <div class="success-modal">
+        <img
+          src="./assets/images/icon-success.svg"
+          alt="check"
+          draggable="false"
+        />
+        <h2 class="success-title">Thanks for subscribing!</h2>
+        <p class="success-description">
+          A confirmation email has been sent to
+          <span class="user-log">ash@loremcompany.com.</span> Please open it and
+          click the button inside to confirm your subscription.
+        </p>
+        <button class="btn">Dismiss message</button>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv"
+        target="_blank"
+        >Frontend Mentor</a
+      >
+      Coded by <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>
+    </div>
+
+    <script>
+      const inputEl = document.querySelector(".input-content");
+      const btnEl = document.querySelector(".form-cta");
+      const modalEl = document.querySelector(".success-modal");
+      const cardsEl = document.querySelector(".cards");
+
+      let check = true;
+      function displayingElements() {
+        if (check) {
+          modalEl.style.display = "grid";
+          cardsEl.style.display = "none";
+        } else {
+          modalEl.style.display = "none";
+          cardsEl.style.display = "grid";
+          check = true;
+        }
+      }
+
+      btnEl.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const value = inputEl.value;
+
+        if (value.includes("@") && value.slice(value.lastIndexOf(".") + 1)) {
+          inputEl.value = "";
+          inputEl.blur();
+          displayingElements();
+          document.querySelector(".user-log").innerHTML = value;
+          check = false;
+        }
+      });
+
+      document
+        .querySelector(".btn")
+        .addEventListener("click", displayingElements);
+    </script>
+  </body>
+</html>
