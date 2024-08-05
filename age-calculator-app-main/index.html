@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="cards">
+        <div class="card--input">
+          <div class="card__input-item">
+            <label for="date">DAY</label>
+            <input
+              id="date"
+              type="number"
+              name="date"
+              min="1"
+              max="31"
+              required
+              placeholder="DD"
+            />
+          </div>
+          <div class="card__input-item">
+            <label for="month">MONTH</label>
+            <input
+              id="month"
+              type="number"
+              name="month"
+              min="1"
+              max="12"
+              required
+              placeholder="MM"
+            />
+          </div>
+          <div class="card__input-item">
+            <label for="year">YEAR</label>
+            <input
+              id="year"
+              type="number"
+              name="year"
+              required
+              max="2024"
+              min="1900"
+              placeholder="YYYY"
+            />
+          </div>
+        </div>
+        <div class="card--check">
+          <div class="check"></div>
+          <button class="btn">
+            <img src="./assets/images/icon-arrow.svg" alt="btn" />
+          </button>
+        </div>
+        <div class="card--output">
+          <figure class="item__output">
+            <span class="calculated calculated--year">--</span>
+            <h2 class="output--title">years</h2>
+          </figure>
+          <figure class="item__output">
+            <span class="calculated calculated--month">--</span>
+            <h2 class="output--title">months</h2>
+          </figure>
+          <figure class="item__output">
+            <span class="calculated calculated--day">--</span>
+            <h2 class="output--title">days</h2>
+          </figure>
+        </div>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>.
+    </div>
+
+    <script>
+      const btnEl = document.querySelector(".btn");
+
+      const yearLabel = document.querySelector(".calculated--year");
+      const monthLabel = document.querySelector(".calculated--month");
+      const dayLabel = document.querySelector(".calculated--day");
+
+      let yearCount = 0;
+
+      function runCountYear(y) {
+        const counter = setInterval(() => {
+          yearCount++;
+
+          yearLabel.innerHTML = String(yearCount).padStart(2, 0);
+
+          if (yearCount === y) {
+            clearInterval(counter);
+          }
+        }, 100);
+      }
+
+      let monthCount = 0;
+      function runCountMonth(m) {
+        const counter = setInterval(() => {
+          monthCount++;
+          monthLabel.innerHTML = monthCount;
+
+          if (monthCount === m) {
+            clearInterval(counter);
+          }
+        }, 200);
+      }
+
+      let dayCount = 0;
+      function runCountDay(d) {
+        const counter = setInterval(() => {
+          dayCount++;
+          dayLabel.innerHTML = dayCount;
+
+          if (dayCount === d) {
+            clearInterval(counter);
+          }
+        }, 250);
+      }
+
+      function getAge() {
+        const yearEl = +document.getElementById("year").value;
+        const monthEl = +document.getElementById("month").value;
+        const dayEl = +document.getElementById("date").value;
+
+        const today = new Date();
+        const birthDate = new Date(`${yearEl} ${monthEl} ${dayEl}`);
+
+        let years = today.getFullYear() - birthDate.getFullYear();
+        let months = Math.abs(today.getMonth() - birthDate.getMonth());
+        let day = Math.abs(today.getDate() - birthDate.getDate());
+
+        function init() {
+          runCountYear(years);
+          runCountMonth(months);
+          runCountDay(day);
+        }
+
+        if (
+          dayEl >= 1 &&
+          dayEl <= 31 &&
+          monthEl >= 1 &&
+          monthEl <= 12 &&
+          yearEl >= 1900 &&
+          yearEl <= 2024
+        ) {
+          yearCount = 0;
+          monthCount = 0;
+          dayCount = 0;
+
+          init();
+
+          // Leap year
+          if (day < 0) {
+            months--;
+
+            const displayMonth = new Date(
+              today.getFullYear(),
+              today.getMonth(),
+              0
+            );
+
+            day += displayMonth;
+          }
+
+          if (month < 0) {
+            years--;
+            months += 12;
+          }
+        }
+      }
+
+      btnEl.addEventListener("click", getAge);
+    </script>
+  </body>
+</html>
