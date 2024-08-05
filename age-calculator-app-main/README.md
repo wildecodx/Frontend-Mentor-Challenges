@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [
-- Live Site URL: [https://age-calculator-p52pqzkwa-wildecodxs-projects.vercel.app/
+- Solution URL: [https://www.frontendmentor.io/solutions/age-calculator-app-vanilla-js-and-modern-css-SSKpIQE_W3
+- Live Site URL: [https://age-calculator-app-delta-nine.vercel.app/
 
 ### Built with
 
