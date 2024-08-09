@@ -39,7 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/vanilla-javascript-for-interaction-and-modern-css-5lIb8E4oTp
-- Live Site URL: [https://product-list-with-cart-2yl2psm71-wildecodxs-projects.vercel.app/
+- Live Site URL: [https://product-list-with-cart-wildecodxs-projects.vercel.app/
 
 ### Built with
 
