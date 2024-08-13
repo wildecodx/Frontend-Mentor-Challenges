@@ -5,6 +5,7 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const closeBtn = document.querySelector(".close-btn");
 const imgBtn = document.querySelector(".hero-img");
+const cartBox = document.querySelector(".cart-box");
 
 const galleryImg = [
   "./images/image-product-1.jpg",
@@ -103,6 +104,7 @@ document.addEventListener("keydown", (e) => {
       [getAttr]?.classList.add("active-item");
   }
 });
+
 closeBtn.addEventListener("click", closeModal);
 
 imgBtn.addEventListener("click", () => {
@@ -175,18 +177,31 @@ let cartCurrent = 0;
 let startingPrice = 125;
 let adder = 0;
 
-function getUpdatedPrice() {
-  labelPrice.innerHTML = `$${adder.toFixed(2)}`;
-
-  if (cartCurrent == 0) {
-    labelPrice.innerHTML = `$${startingPrice.toFixed(2)}`;
-  }
-}
+let condition = true; // condition append only one controls
 
 const cartBtn = document.querySelector(".btn-get__quantity");
 
 const labelQuantity = document.querySelector(".quantity-label");
+
+const labelCartItem = document.querySelector(".cart-item");
 const labelPrice = document.querySelector(".price-label");
+
+function quantityCounter(counter) {
+  labelQuantity.innerHTML = counter;
+  labelCartItem.innerHTML = counter;
+}
+
+function getUpdatedPrice() {
+  document.querySelector(".cart_price--label").innerHTML = `$${adder.toFixed(
+    2
+  )}`;
+
+  if (cartCurrent == 0) {
+    document.querySelector(
+      ".cart_price--label"
+    ).innerHTML = `$${startingPrice.toFixed(2)}`;
+  }
+}
 
 cartBtn.addEventListener("click", function (e) {
   const target = e.target;
@@ -195,32 +210,42 @@ cartBtn.addEventListener("click", function (e) {
   const minusBtn = target.closest(".cart-minus");
 
   if (!target) return;
+
   if (addBtn) {
     cartCurrent++;
-    console.log(cartCurrent);
+
+    quantityCounter(cartCurrent);
     document.querySelector(".cart-item").style.scale = "1";
-    document.querySelector(".cart-item").innerHTML = cartCurrent;
-    labelQuantity.innerHTML = cartCurrent;
     adder += startingPrice;
     getUpdatedPrice();
+    const labelCartQuantity = document.querySelector(".label-quantity");
+    labelCartQuantity.innerHTML = cartCurrent;
   }
 
   if (minusBtn) {
     if (cartCurrent > 0) {
       cartCurrent--;
-      console.log(cartCurrent);
-      labelQuantity.innerHTML = cartCurrent;
+      quantityCounter(cartCurrent);
       adder -= startingPrice;
       getUpdatedPrice();
-      document.querySelector(".cart-item").innerHTML = cartCurrent;
+      const labelCartQuantity = document.querySelector(".label-quantity");
+      labelCartQuantity.innerHTML = cartCurrent;
     }
+  }
 
-    if (cartCurrent == 0) {
-      document.querySelector(".cart-item").style.scale = "0";
-    }
+  if (cartCurrent == 0) {
+    document.querySelector(".cart-item").style.scale = "0";
+
+    //  Cart Item
+    document.querySelector(".cart_active--item")?.remove();
+    condition = true;
+    document.querySelector(".cart_empty--item").style.display = " block";
+    removeBtnCart.style.opacity = "0";
+    removeBtnCart.style.pointerEvents = "none";
   }
 });
 
+// ALERT WHEN DONE ORDER
 function processOrder() {
   // Alert Btn
 
@@ -232,9 +257,8 @@ function processOrder() {
       confirmButtonText: "Order More",
     });
   }
+  document.querySelector(".swal2-container").style.zIndex = "5555";
 }
-
-document.querySelector(".btn-add").addEventListener("click", processOrder);
 
 // Mobile Slider
 
@@ -245,7 +269,7 @@ const slideNextBtn = document.querySelector(".next-btn");
 const dots = document.querySelector(".dots");
 
 let curSlide = 0;
-let condition = true;
+
 function sliderFunc(slides) {
   slider.forEach((slide, i) => {
     slide.style.transform = `translateX(${100 * (i - slides)}%)`;
@@ -322,3 +346,81 @@ function prevSlide() {
 
 slideNextBtn.addEventListener("click", nextSlide);
 slidePrevBtn.addEventListener("click", prevSlide);
+
+//  Cart Item
+
+const btnCart = document.querySelector(".cart-btn");
+
+btnCart.addEventListener("click", () => {
+  document.querySelector(".cart-wrapper").classList.toggle("show");
+});
+
+function addItemCart() {
+  if (cartCurrent >= 1) {
+    if (condition) {
+      cartBox.insertAdjacentHTML(
+        "beforeend",
+        `  <div class="cart_active--item">
+  <img
+    src="./images/image-product-1-thumbnail.jpg"
+    alt="cart product"
+    draggable="false"
+    class="cart-img"
+    ;
+  />
+  <div class="cart_item--info">
+    <h3 class="cart-item">Fall Limited Edition Sneakers</h3>
+    <div class="cart-pricing">
+      <span>$125.00</span>
+      <span class="cart-quantity">x</span>
+      <span class="label-quantity">${cartCurrent}</span>
+      <span class="cart_price--label">$120</span>
+    </div>
+  </div>
+
+  </div>   `
+      );
+      condition = false;
+      removeBtnCart.style.opacity = "1";
+      removeBtnCart.style.pointerEvents = "auto";
+    }
+
+    // //  If cart has item
+    if (cartCurrent >= 0) {
+      document.querySelector(".cart_empty--item").style.display = " none";
+      document.querySelector(".cart-wrapper").classList.add("show");
+    }
+  }
+  getUpdatedPrice();
+}
+
+//  Remove Btn Cart Item
+const removeBtnCart = document.querySelector(".remove-cart");
+
+function cartReset() {
+  cartCurrent = 0;
+  document.querySelector(".cart-item").style.scale = "0";
+  quantityCounter(cartCurrent);
+
+  startingPrice = 125;
+  adder = 0;
+
+  addItem();
+  condition = true;
+}
+
+removeBtnCart.addEventListener("click", () => {
+  document.querySelector(".cart_active--item")?.remove();
+  document.querySelector(".cart_empty--item").style.display = "block";
+  removeBtnCart.style.opacity = "0";
+  cartReset();
+});
+
+//  ADD TO CART ADD THE ITEM FUNCTION
+document.querySelector(".btn-add").addEventListener("click", () => {
+  addItemCart();
+  document.querySelector(".btn-cart").addEventListener("click", processOrder);
+  if (cartCurrent <= 0) {
+    alert("You dont add cart yet!");
+  }
+});

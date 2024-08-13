@@ -49,6 +49,24 @@
             class="profile"
             draggable="false"
           />
+
+          <div class="cart-wrapper">
+            <h3 class="cart-title">Cart</h3>
+            <div class="cart-box">
+              <div class="cart_empty--item">
+                <span class="empty-title">Your cart is empty</span>
+              </div>
+
+              <button class="remove-cart">
+                <img
+                  src="/images/icon-delete.svg"
+                  alt="delete icon"
+                  draggable="false"
+                />
+              </button>
+            </div>
+            <button class="btn-cart">Checkout</button>
+          </div>
         </div>
       </nav>
     </header>
@@ -194,6 +212,9 @@
         >Frontend Mentor</a
       >. Coded by
       <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>.
+
+      <span class="label-quantity" style="opacity: 0"></span>
+      <span class="cart_price--label" style="opacity: 0"></span>
     </div>
   </body>
 </html>
