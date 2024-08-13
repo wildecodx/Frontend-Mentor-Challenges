@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/vanilla-js-ecommerce-product-page-49oLLob_7n
-- Live Site URL: [https://ecommerce-product-page-main-gamma-puce.vercel.app/
+- Live Site URL: [https://ecommerce-product-ten.vercel.app/
 
 ### Built with
 
