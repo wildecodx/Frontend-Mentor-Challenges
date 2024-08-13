@@ -26,14 +26,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./images/ss1.png);
-![](./images/ss2.png);
-![](./images/ss3.png);
-![](./images/ss4.png);
+![](./images/ss1.png)
+![](./images/ss2.png)
+![](./images/ss3.png)
+![](./images/ss4.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/vanilla-js-ecommerce-product-page-49oLLob_7n
 - Live Site URL: [https://ecommerce-product-page-main-gamma-puce.vercel.app/
 
 ### Built with
