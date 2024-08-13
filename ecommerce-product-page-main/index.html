@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./script.js"></script>
+
+    <title>Frontend Mentor | E-commerce product page</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="main-nav">
+        <button class="menu-btn">
+          <img src="./images/icon-menu.svg" alt="menu" />
+        </button>
+        <a href="#" class="logo"
+          ><img src="./images/logo.svg" alt="logo" draggable="false"
+        /></a>
+        <ul class="nav-lists">
+          <li class="list-item"><a href="#">Collections</a></li>
+          <li class="list-item"><a href="#">Men</a></li>
+          <li class="list-item"><a href="#">Women</a></li>
+          <li class="list-item"><a href="#">About</a></li>
+          <li class="list-item"><a href="#">Contact</a></li>
+        </ul>
+        <div class="cta-box">
+          <button class="cart-btn">
+            <span class="cart-item">0</span>
+            <img
+              src="./images/icon-cart.svg"
+              alt="cart btn"
+              draggable="false"
+            />
+          </button>
+          <img
+            src="./images/image-avatar.png"
+            alt="account profile"
+            class="profile"
+            draggable="false"
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container-wrapper">
+        <section class="hero-section">
+          <div class="img-box">
+            <img
+              src="./images/image-product-1.jpg"
+              alt="hero img"
+              class="hero-img"
+              draggable="false"
+            />
+            <div class="gallery-images">
+              <div class="gallery-image active-item">
+                <img src="./images/image-product-1.jpg" alt="product 1 " />
+              </div>
+              <div class="gallery-image">
+                <img src="./images/image-product-2.jpg" alt="product 2 " />
+              </div>
+              <div class="gallery-image">
+                <img src="./images/image-product-3.jpg" alt="product 3 " />
+              </div>
+              <div class="gallery-image">
+                <img src="./images/image-product-4.jpg" alt="product 4 " />
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-slider">
+            <button class="prev-btn">
+              <img
+                src="./images/icon-previous.svg"
+                alt="prev icon"
+                draggable="false"
+              />
+            </button>
+
+            <div class="slider-wrapper">
+              <div class="sliders">
+                <img
+                  src="./images/image-product-1.jpg"
+                  alt="product"
+                  draggable="false"
+                />
+              </div>
+              <div class="sliders">
+                <img
+                  src="./images/image-product-2.jpg"
+                  alt="product"
+                  draggable="false"
+                />
+              </div>
+              <div class="sliders">
+                <img
+                  src="./images/image-product-3.jpg"
+                  alt="product"
+                  draggable="false"
+                />
+              </div>
+              <div class="sliders">
+                <img
+                  src="./images/image-product-4.jpg"
+                  alt="product"
+                  draggable="false"
+                />
+              </div>
+            </div>
+
+            <button class="next-btn">
+              <img
+                src="./images/icon-next.svg"
+                alt="next icon"
+                draggable="false"
+              />
+            </button>
+            <div class="dots"></div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-title__headings">
+              <h3 class="tertiary-heading">SNEAKER COMPANY</h3>
+              <h2 class="primary-heading">Fall Limited Edition Sneakers</h2>
+            </div>
+            <p class="hero-description">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+            <div class="pricing-box">
+              <p class="price-labeled">
+                <span class="price-label">$125.00</span>
+                <span class="price-label-discount">50%</span>
+              </p>
+              <s class="price-discount">$250.00</s>
+            </div>
+            <div class="cta-btn">
+              <div class="btn-get__quantity">
+                <button class="cart-minus">
+                  <img
+                    src="./images/icon-minus.svg"
+                    alt="decrement order"
+                    draggable="false"
+                  />
+                </button>
+                <span class="quantity-label">0</span>
+                <button class="cart-add">
+                  <img
+                    src="./images/icon-plus.svg"
+                    alt="increment order"
+                    draggable="false"
+                  />
+                </button>
+              </div>
+              <button class="btn-add">
+                <img
+                  src="./images/icon-cart.svg"
+                  alt="cart icon"
+                  draggable="false"
+                />
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="modal">
+        <button class="close-btn">
+          <img
+            src="./images/icon-close.svg"
+            alt="close btn"
+            draggable="false"
+          />
+        </button>
+      </div>
+    </main>
+    <div class="overlay"></div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>.
+    </div>
+  </body>
+</html>
