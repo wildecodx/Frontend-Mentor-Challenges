@@ -563,6 +563,7 @@ main {
   text-align: center;
   margin-top: auto;
   color: var(--White);
+margin-top: auto;
 
   a {
     font-weight: var(--fw-lg);
