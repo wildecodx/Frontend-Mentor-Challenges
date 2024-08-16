@@ -40,6 +40,8 @@ body {
   line-height: 1.5;
   background: var(--secondary-clr);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -559,6 +561,7 @@ main {
   background: var(--dark-grayish-blue);
   padding: 2rem;
   text-align: center;
+  margin-top: auto;
   color: var(--White);
 
   a {

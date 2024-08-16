@@ -405,7 +405,6 @@ function cartReset() {
   startingPrice = 125;
   adder = 0;
 
-  addItem();
   condition = true;
 }
 
@@ -419,7 +418,9 @@ removeBtnCart.addEventListener("click", () => {
 //  ADD TO CART ADD THE ITEM FUNCTION
 document.querySelector(".btn-add").addEventListener("click", () => {
   addItemCart();
+
   document.querySelector(".btn-cart").addEventListener("click", processOrder);
+
   if (cartCurrent <= 0) {
     alert("You dont add cart yet!");
   }
