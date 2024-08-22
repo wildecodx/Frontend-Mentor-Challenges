@@ -79,15 +79,16 @@ let starting = 0;
         
         const getDays = Math.round(Math.abs((difference) / (1000 * 60 * 60 * 24)));
         const getHours = Math.round(Math.abs((difference) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
-        const getMinutes = Math.round(Math.abs((difference) % (1000 * 60 * 60) / (1000 * 60 )));
+        const getMinutes = Math.round(Math.abs((difference) % (1000 * 60 * 60) / (1000 * 60)));
         const getSeconds = Math.round(Math.abs((difference) % (1000 * 60 ) / 1000));
 
-        const timeToArr = [getDays, getHours, getMinutes, getSeconds];
+      document.querySelector('.label--days').innerHTML = `${getDays}`.padStart(2, 0);
+      document.querySelector('.label--hours').innerHTML = `${getHours}`.padStart(2, 0);
+      document.querySelector('.label--minutes').innerHTML = `${getMinutes}`.padStart(2, 0);
+      document.querySelector('.label--seconds').innerHTML = `${getSeconds}`.padStart(2, 0);
 
 
-        document.querySelectorAll('.time').forEach((label, i) => {
-          label.innerHTML = `${timeToArr[i]}`.padStart(2, 0);
-        })
+      
 
 
       
