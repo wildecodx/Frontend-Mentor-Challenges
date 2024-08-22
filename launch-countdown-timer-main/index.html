@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Launch countdown timer</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="mountain"></div>
+    <div class="container">
+      <div class="content">
+        <h3>We're launching soon</h3>
+        <div class="timers">
+          <figure class="time-box">
+            <h2 class="time label--days">08</h2>
+            <span>DAYS</span>
+          </figure>
+          <figure class="time-box">
+            <h2 class="time label--hours">23</h2>
+            <span>HOURS</span>
+          </figure>
+          <figure class="time-box">
+            <h2 class="time label--minutes">55</h2>
+            <span>MINUTES</span>
+          </figure>
+          <figure class="time-box">
+            <h2 class="time label--seconds">41</h2>
+            <span>SECONDS</span>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"></a>
+          Frontend Mentor</a
+        >. Coded by <a href="#"> DeCodX</a>. Days Hours Minutes Seconds
+      </div>
+    </footer>
+
+    <script>
+
+
+        
+let starting = 0;
+     function countdownTimer () {
+    
+      const tick = setInterval(() => {
+        const today = new Date().getTime();
+
+        const every8thDays = 
+        ['August 31, 2024 00:00:00', 
+        'September 07, 2024 00:00:00', 
+        'September 15, 2024 00:00:00', 
+      'September 23, 2024 00:00:00',
+    'October 01, 2024 00:00:00'];
+
+     
+        let targetDate = new Date(every8thDays[starting]).getTime();
+
+        
+        
+        const difference = today - targetDate;
+
+        
+        const getDays = Math.round(Math.abs((difference) / (1000 * 60 * 60 * 24)));
+        const getHours = Math.round(Math.abs((difference) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+        const getMinutes = Math.round(Math.abs((difference) % (1000 * 60 * 60) / (1000 * 60 )));
+        const getSeconds = Math.round(Math.abs((difference) % (1000 * 60 ) / 1000));
+
+        const timeToArr = [getDays, getHours, getMinutes, getSeconds];
+
+
+        document.querySelectorAll('.time').forEach((label, i) => {
+          label.innerHTML = `${timeToArr[i]}`.padStart(2, 0);
+        })
+
+
+      
+        if (difference > 0)  {
+          starting++;
+        } else if (starting >= 3) {
+          clearInterval(tick);
+        }
+        
+
+      }, 1000)
+
+     
+      return tick;
+     }
+
+     countdownTimer();
+
+    </script>
+  </body>
+</html>
