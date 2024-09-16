@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main>
+      <div class="card-images">
+        <div class="card-front">
+          <img
+            src="./images/bg-card-front.png"
+            alt="card info"
+            draggable="false"
+          />
+
+          <img src="./images/card-logo.svg" alt="card logo" class="card-logo" />
+          <div class="card-front--info">
+            <span class="cc-num">0000 0000 0000 0000</span>
+            <div class="cc-info">
+              <span class="cc-name">YOUR NAME HERE</span>
+              <span class="cc-validity"
+                ><span class="cc-validity-m">MM</span>/<span
+                  class="cc-validity-y"
+                  >YY</span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card-back">
+          <img
+            src="./images/bg-card-back.png"
+            alt="card info"
+            draggable="false"
+          />
+
+          <span class="cc-cvc">000</span>
+        </div>
+      </div>
+      <div class="card-info">
+        <form action="" method="post">
+          <div class="card-form--box">
+            <label for="cardholder" data-error="Can't be blank"
+              >cardholder name</label
+            >
+            <input
+              type="text"
+              placeholder="e.g. Jane Appleseed"
+              name="cardholder"
+              id="cardholder"
+              required
+            />
+          </div>
+          <div class="card-form--box">
+            <label for="cardnumber" data-error="Wrong input, numbers only!"
+              >card number</label
+            >
+            <input
+              type="text"
+              placeholder="e.g. 1234 5678 9123 0000"
+              name="cardnumber"
+              id="cardnumber"
+              maxlength="16"
+              required
+            />
+          </div>
+          <div class="card-form--box form-2layout">
+            <div class="card-box-item">
+              <label data-error="Can't be blank">Exp. date [MM/YY]</label>
+              <div>
+                <input
+                  type="number"
+                  placeholder="MM"
+                  name="month"
+                  id="month"
+                  min="01"
+                  max="12"
+                  required
+                />
+                <input
+                  type="number"
+                  placeholder="YY"
+                  name="year"
+                  id="year"
+                  min="2024"
+                  max="2040"
+                  required
+                />
+              </div>
+            </div>
+            <div class="card-box-item">
+              <label for="cvc" data-error="Can't be blank">CVC</label>
+              <input
+                type="number"
+                placeholder="e.g. 123"
+                name="cvc"
+                id="cvc"
+                required
+              />
+            </div>
+          </div>
+
+          <button class="btn form-btn">Confirm</button>
+        </form>
+
+        <div class="attribution">
+          Challenge by
+          <a
+            href="https://www.frontendmentor.io/profile/wildecodx"
+            target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a href="https://github.com/wildecodx" target="_blank">DeCodX</a>.
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    const ccNumLabel = document.querySelector(".cc-num");
+    const ccNameLabel = document.querySelector(".cc-name");
+    const ccValidityMonthLabel = document.querySelector(".cc-validity-m");
+    const ccValidityYearLabel = document.querySelector(".cc-validity-y");
+    const ccCvcLabel = document.querySelector(".cc-cvc");
+
+    const cardHolder = document.getElementById("cardholder");
+
+    const cardNumber = document.getElementById("cardnumber");
+    const cardMonth = document.getElementById("month");
+    const cardYear = document.getElementById("year");
+    const cardCvc = document.getElementById("cvc");
+
+    const formBtn = document.querySelector(".form-btn");
+
+    function cardDisplay() {
+      const ccNum = +cardNumber.value;
+      const ccCvc = +cardCvc.value;
+      const ccMonth = +cardMonth.value;
+      const ccYear = +cardYear.value;
+      const ccHolder = cardHolder.value;
+
+      if (
+        isFinite(ccNum) &&
+        ccCvc &&
+        ccMonth >= 1 &&
+        ccMonth <= 12 &&
+        ccYear >= 2024
+      ) {
+        const transform = `${ccNum}`;
+        const transformStr = transform.replace(/(\d{4})(?=\d)/g, "$1 ");
+        ccNumLabel.innerHTML = transformStr;
+        ccNameLabel.innerHTML = ccHolder;
+        ccValidityMonthLabel.innerHTML = ccMonth;
+        ccValidityYearLabel.innerHTML = ccYear;
+        ccCvcLabel.innerHTML = ccCvc;
+        setTimeout(() => {
+          document.querySelector("form").style.display = "none";
+
+          const html = `<div class="success-panel">
+          <img
+            src="./images/icon-complete.svg"
+            alt="icon-complete"
+            draggable="false"
+          />
+          <h2 class="success-title">
+            Thank you!
+            <span class="sub-title">We've added your card details</span>
+          </h2>
+          <button class="btn btn-new">Continue</button>
+        </div>`;
+
+          document
+            .querySelector(".card-info")
+            .insertAdjacentHTML("beforeend", html);
+        }, 1000);
+
+        //  Remove form
+      }
+    }
+
+    formBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      cardDisplay();
+    });
+  </script>
+</html>

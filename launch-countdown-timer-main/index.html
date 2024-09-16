@@ -78,9 +78,9 @@ let starting = 0;
 
         
         const getDays = Math.round(Math.abs((difference) / (1000 * 60 * 60 * 24)));
-        const getHours = Math.round(Math.abs((difference) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
-        const getMinutes = Math.round(Math.abs((difference) % (1000 * 60 * 60) / (1000 * 60)));
-        const getSeconds = Math.round(Math.abs((difference) % (1000 * 60 ) / 1000));
+        const getHours = Math.floor(Math.abs((difference) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+        const getMinutes = Math.floor(Math.abs((difference) % (1000 * 60 * 60) / (1000 * 60)));
+        const getSeconds = Math.floor(Math.abs((difference) % (1000 * 60 ) / 1000));
 
       document.querySelector('.label--days').innerHTML = `${getDays}`.padStart(2, 0);
       document.querySelector('.label--hours').innerHTML = `${getHours}`.padStart(2, 0);
