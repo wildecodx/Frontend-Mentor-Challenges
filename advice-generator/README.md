@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/advice-generator-Y7bfA8gKCp)
+- Live Site URL: [Live Solution](https://advice-generator-9drw6e36x-wildecodxs-projects.vercel.app/)
 
 ### Built with
 
