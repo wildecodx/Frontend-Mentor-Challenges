@@ -24,12 +24,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](/generator-ss.png)
+![](./generator-ss.png)
 
 ### Links
 
 - Solution URL: [Solution](https://www.frontendmentor.io/solutions/advice-generator-Y7bfA8gKCp)
-- Live Site URL: [Live Solution](https://advice-generator-9drw6e36x-wildecodxs-projects.vercel.app/)
+- Live Site URL: [Live Solution](https://advice-generator-fem-seven.vercel.app/)
 
 ### Built with
 
