@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./generator-ss.png)
+![](/generator-ss.png)
 
 ### Links
 

@@ -48,7 +48,7 @@ advice ?
     after:h-[.4px]
     after:block
     after:bg-title">||</div>
-    <button onClick={ fetchAdvice}  className="bottom-0 left-[50%] translate-x-[-50%] translate-y-[50%] absolute w-[3rem] aspect-square rounded-full flex items-center justify-center bg-highlight hover:bg-highlightGlow hover:shadow-lg " ><img className="w-[1.25rem]" src="/public/icon-dice.svg" alt="icon" draggable="false"/></button>
+    <button onClick={ fetchAdvice}  className="bottom-0 left-[50%] translate-x-[-50%] translate-y-[50%] absolute w-[3rem] aspect-square rounded-full flex items-center justify-center bg-highlight hover:bg-highlightGlow hover:shadow-lg " ><img className="w-[1.25rem]" src="/icon-dice.svg" alt="icon" draggable="false"/></button>
   </div>
 )
 }
